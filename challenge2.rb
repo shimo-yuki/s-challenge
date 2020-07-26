@@ -61,7 +61,6 @@ def sum(formula)
 				sumtotal = "#{sumtotal.to_i / formula[i + 1].to_i}"
 			end
 		end
-		puts sumtotal
 	end
 	puts sumtotal
 end
