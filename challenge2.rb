@@ -41,6 +41,7 @@ def calc(calculation)
 			end
 		else
 			puts '正しい計算式ではありません'
+			break
 		end
 	end
 	sum(formula)
