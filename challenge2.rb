@@ -1,19 +1,19 @@
+# http://serviver-challenge.herokuapp.com/problems/25
+
 def main
 	puts '計算式を入力してください'
-	puts '終了する場合はexitと入力してください'
+  puts '終了する場合はexitと入力してください'
 
-	loop do
-		calculation = gets.chomp
-		case calculation
-		when 'exit' then
-			puts '終了します'
-			break
-		else
-			calc(calculation.chars.filter { |c| c unless c == ' '})
-		end
-	end
+loop do
+  calculation = gets.chomp
+  case calculation
+  when 'exit' then
+    puts '終了します'
+    break
+  else
+    calc(calculation.chars.filter { |c| c unless c == ' '})
+  end
 end
-
 
 def calc(calculation)
 	formula = []
@@ -21,17 +21,17 @@ def calc(calculation)
 	for i in 1..calculation.size do
 		case calculation[i - 1]
 		when /[0-9]/
-			case calculation[i]
-			when /[0-9]/
-				kari << calculation[i - 1]
+		case calculation[i]
+		when /[0-9]/
+			kari << calculation[i - 1]
+		else
+			if kari.empty?
+				formula << calculation[i - 1]
 			else
-				if kari.empty?
-					formula << calculation[i - 1]
-				else
-					kari << calculation[i - 1]
-					formula << kari.join 
-				end
+				kari << calculation[i - 1]
+				formula << kari.join 
 			end
+		end
 		when /[+\-*\/]/
 			if /[+\-*\/]/ == calculation[i]
 				puts '正しい計算式ではありません'
